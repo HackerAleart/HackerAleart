@@ -1,0 +1,61 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Youtube Exaple hub", "Ocean")
+
+-- MAIN
+local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("Main")
+
+
+MainSection:NewButton("Admin", "Gives You Admin", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+MainSection:NewToggle("Super Human", "Super speed And Jump High", function(state)
+    if state then
+         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 120
+         game.Players.LocalPlayer.Character.Humanoid.JumpPower = 120
+    else
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+    end
+end)
+
+MainSection:NewButton("Reset", "Resets Your Character", function()
+    loadstring(game:HttpGet('https://github.com/Lightzzzv/RobloxScripts/blob/main/Aimbot-Circle'))()
+end) 
+
+
+--LOCAL PLAYER
+local Player = Window:NewTab("Player")
+local PlayerSection = Player:NewSection("Player")
+
+PlayerSection:NewSlider("WalkSpeed", "Speed", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+PlayerSection:NewSlider("JumpePower", "JumpPower", 500, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)  
+
+MainSection:NewButton("Rain from the sky", "makes balls fall from the sky", function()
+end)
+while true do
+	
+	local Part = Instance.new("Part")
+	Part.Parent = game.Workspace
+	Part.Color = Color3.fromRGB(0, 90, 160)
+	
+	local randomx = math.random(-1000, 1000)
+	local randomz = math.random(-200, 200)
+	
+	Part.Position = Vector3.new(randomx, 50, randomz)
+	Part.CanQuery = true
+	Part.CanCollide = true
+	Part.CanTouch = true
+	Part.Shape = Enum.PartType.Ball
+	Part.Transparency = 0.5
+	Part.Size = Vector3.new(2, 2, 2)
+	
+	task.wait()
+	
+end
